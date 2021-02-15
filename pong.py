@@ -11,8 +11,8 @@ ALTURA_JANELA = 720
 xDaBola = 110
 yDaBola = 0
 tamanhoDaBola = 20
-velocidadeDaBolaEmX = 0.1
-velocidadeDaBolaEmy = 0.1
+velocidadeDaBolaEmX = 0.25
+velocidadeDaBolaEmy = 0.25
 
 YDoJogador1 = 0
 YDoJogador2 = 0
@@ -57,11 +57,11 @@ def atualizar():
 # -----------------VELOCIDADE DOS CONTROLES-------------------------
         if keys[K_w]:
                 YDoJogador1 = YDoJogador1 + 0.2
-        if keys[K_s]:
+        if keys[K_s]:                                   # BOTÕES DO JOGADOR 1 
                 YDoJogador1 = YDoJogador1 - 0.2
         if keys[K_UP]:
                 YDoJogador2 = YDoJogador2 + 0.2
-        if keys[K_DOWN]:
+        if keys[K_DOWN]:                                # BOTÕES DO JOGADOR 2
                 YDoJogador2 = YDoJogador2 - 0.2
         if keys[K_ESCAPE]:
                 QUIT = exit()                   # botão para sair
@@ -87,9 +87,9 @@ def desenhar():
 
         glClear(GL_COLOR_BUFFER_BIT)
 
-        desenharRetangulo(xDaBola, yDaBola, tamanhoDaBola, tamanhoDaBola, 1, 0.15, 0)
-        desenharRetangulo(xDoJogador1(),YDoJogador1, larguraDosJogadores(), alturaDosJogadores(), 0.5, 1, 0.25)
-        desenharRetangulo(xDoJogador2(), YDoJogador2, larguraDosJogadores(),alturaDosJogadores(), 0, 0, 1)
+        desenharRetangulo(xDaBola, yDaBola, tamanhoDaBola, tamanhoDaBola, 1, 0.15, 0)           #CORES DA BOLA
+        desenharRetangulo(xDoJogador1(),YDoJogador1, larguraDosJogadores(), alturaDosJogadores(), 0.5, 1, 0.25)         #CORES DO PLAYER 1
+        desenharRetangulo(xDoJogador2(), YDoJogador2, larguraDosJogadores(),alturaDosJogadores(), 0, 0, 1)              # CORES DO PLAYER 2
 
         pygame.display.flip()
 
@@ -101,7 +101,7 @@ pygame.display.set_mode((LARGURA_JANELA, ALTURA_JANELA), DOUBLEBUF | OPENGL)
 while True:
         atualizar()
         desenhar()
-       # pygame.event.pump() # para os eventos da biblioteca funcionarem corretamente
+       # pygame.event.pump()  para os eventos da biblioteca funcionarem corretamente
         for event in pygame.event.get():
                 if event.type == QUIT:
                         pygame.quit()
